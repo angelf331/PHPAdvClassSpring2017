@@ -7,9 +7,9 @@
     <body>
         <?php
             require_once './models/dbconnect.php';
-            require_once '.models/util.php';
-            require_once './models/addressCRUD';
-            require_once '.models/validation.php';
+            require_once './models/util.php';
+            require_once './models/addressCRUD.php';
+            require_once './models/validation.php';
             
             $fullname = filter_input(INPUT_POST, 'fullname');
             $email = filter_input(INPUT_POST, 'email');
@@ -36,13 +36,13 @@
                 if( empty($city) ){
                     $errors[] = 'City is required.';
                 }
-                if(isZipValid($zip) === false ){
+                if( isZipValid($zip) === false ){
                     $errors[] = 'Zip is required.';
                 }
                 if( empty($state) ){
                     $errors[] = 'State is required.';
                 }
-                if(isDateValid($birthday) === false){
+                if( isDateValid($birthday) === false ){
                     $errors[] = 'Birthday is required.';
                 }
                 
@@ -53,9 +53,11 @@
                 }
             }
             
-            include '/.templates/add-address.html.php';
-            include '/.templates/errors.html.php';
-            include '/.templates/messages.html.php';
+            include './templates/messages.html.php';
+            include './templates/errors.html.php';
+            include './templates/add-address.html.php';
+            
+            
             
         ?>
     </body>
