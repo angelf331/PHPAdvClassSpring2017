@@ -1,6 +1,6 @@
 <?php if ( is_array($addresses) && count($addresses) > 0 ) : ?>
 <h1>Address List</h1>
-<table>
+<table class="table table-striped table-hover">
 <?php foreach( $addresses as $row ) : ?>
     <tr>
         <td><?php echo $row['fullname']; ?> </td>
@@ -13,4 +13,5 @@
     </tr>
 <?php endforeach; ?>
 </table>
+<a href="add-address.php">Add Address</a>
 <?php endif; ?>
