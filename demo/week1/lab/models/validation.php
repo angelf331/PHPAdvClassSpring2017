@@ -1,5 +1,5 @@
 <?php
-
+//regex for zip
 function isZipValid($ZIP){
     $zipRegex = '/^[0-9]{5}$/';
     
@@ -12,6 +12,7 @@ function isZipValid($ZIP){
 function isDateValid($date){
     return (bool)  strtotime($date);
 }
+//regex for email 
 function isEmailValid($email){
     $emailRegex = '^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$';
     

@@ -1,3 +1,4 @@
+<!--View page for adding address-->
 <div class="container  col-md-6">
     <div class="center-block">
         <h1>Add Phone</h1>

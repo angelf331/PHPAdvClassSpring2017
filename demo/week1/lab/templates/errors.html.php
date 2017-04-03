@@ -1,3 +1,4 @@
+
 <?php if ( isset($errors) && is_array($errors) ) : ?>
 <ul>
     <?php foreach ($errors as $error): ?>

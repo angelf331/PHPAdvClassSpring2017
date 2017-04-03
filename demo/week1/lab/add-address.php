@@ -6,12 +6,14 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-gv0oNvwnqzF6ULI9TVsSmnULNb3zasNysvWwfT/s4l8k5I+g6oFz9dye0wg3rQ2Q" crossorigin="anonymous">
     </head>
     <body>
+        <!--this page gets content from all files and posts it on page
         <?php
             require_once './models/dbconnect.php';
             require_once './models/util.php';
             require_once './models/addressCRUD.php';
             require_once './models/validation.php';
             
+            //posts html input text boxes
             $fullname = filter_input(INPUT_POST, 'fullname');
             $email = filter_input(INPUT_POST, 'email');
             $addressline1 = filter_input(INPUT_POST, 'addressline1');
@@ -23,7 +25,7 @@
             $errors = [];
             $states = getStates();
             
-            
+            // if text boxes empty displays error message
             if ( isPostRequest() ){
                 if( empty($fullname) ){
                     $errors[] = 'Full name is required.';
@@ -46,7 +48,7 @@
                 if( isDateValid($birthday) === false ){
                     $errors[] = 'Birthday is required.';
                 }
-                
+                // if not empty add to database
                 if ( count($errors) === 0){
                     if (createAddress($fullname, $email, $addressline1, $city, $state, $zip, $birthday)){
                         $message = 'Address Added';

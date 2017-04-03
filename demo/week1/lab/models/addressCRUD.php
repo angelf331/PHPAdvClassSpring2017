@@ -1,5 +1,5 @@
 <?php
-
+//gets data from database
 function readAllAddress(){
     $db = dbconnect();
     $stmt = $db->prepare("SELECT * FROM address");
@@ -26,6 +26,7 @@ function readAllAddress(){
  * 
  * @return boolean
  */
+//creates data to database
 function createAddress($fullname, $email, $addressline1, $city, $state, $zip, $birthday){
     $db = dbconnect();
     $stmt = $db->prepare("INSERT INTO address SET fullname = :fullname, email = :email, addressline1 = :addressline1, city = :city, state = :state, zip = :zip, birthday = :birthday");
