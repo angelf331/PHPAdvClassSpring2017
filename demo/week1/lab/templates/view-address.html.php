@@ -1,3 +1,4 @@
+<!--gets data from addressCRUD and displays it in a table here-->
 <?php if ( is_array($addresses) && count($addresses) > 0 ) : ?>
 <h1>Address List</h1>
 <table class="table table-striped table-hover">
