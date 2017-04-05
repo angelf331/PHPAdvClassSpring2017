@@ -9,7 +9,7 @@
         <!--displays table from view-address -->
         <div class="col-md-6">
             <?php
-                include './models/dbconnect.php';
+                include './models/DB.php';
                 include './models/addressCRUD.php';
             
                 $addresses = readAllAddress();

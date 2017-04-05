@@ -1,7 +1,7 @@
 <?php
 //gets data from database
 function readAllAddress(){
-    $db = dbconnect();
+    $db = d9h();
     $stmt = $db->prepare("SELECT * FROM address");
     
     $results = array();
