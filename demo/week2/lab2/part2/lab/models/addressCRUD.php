@@ -1,7 +1,7 @@
 <?php
 //gets data from database
 function readAllAddress(){
-    $db = d9h();
+    $db = $this->DB;
     $stmt = $db->prepare("SELECT * FROM address");
     
     $results = array();
@@ -28,7 +28,7 @@ function readAllAddress(){
  */
 //creates data to database
 function createAddress($fullname, $email, $addressline1, $city, $state, $zip, $birthday){
-    $db = dbconnect();
+    $db = $this->DB;
     $stmt = $db->prepare("INSERT INTO address SET fullname = :fullname, email = :email, addressline1 = :addressline1, city = :city, state = :state, zip = :zip, birthday = :birthday");
     $binds = array(
         ":fullname" => $fullname,
