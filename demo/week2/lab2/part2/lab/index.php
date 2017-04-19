@@ -9,10 +9,10 @@
         <!--displays table from view-address -->
         <div class="col-md-6">
             <?php
-                include './models/DB.php';
-                include './models/addressCRUD.php';
-            
-                $addresses = readAllAddress();
+                include './autoload.php';
+                
+                $crud = new AddressCRUD();
+                $addresses = $crud->readAllAddress();
             
                 include './templates/view-address.html.php';
             ?>

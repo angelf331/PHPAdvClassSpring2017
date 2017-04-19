@@ -8,10 +8,7 @@
     <body>
         <!--this page gets content from all files and posts it on page-->
         <?php
-            require_once './models/dbconnect.php';
-            require_once './models/util.php';
-            require_once './models/addressCRUD.php';
-            require_once './models/validation.php';
+            require_once './autoload.php';
             
             //posts html input text boxes
             $fullname = filter_input(INPUT_POST, 'fullname');
@@ -23,10 +20,11 @@
             $birthday = filter_input(INPUT_POST, 'birthday');
             
             $errors = [];
-            $states = getStates();
-            
+            $util = new Util();
+            $states = $util->getStates();
+            $validate = new Validation();
             // if text boxes empty displays error message
-            if ( isPostRequest() ){
+            if ($util->isPostRequest() ){
                 if( empty($fullname) ){
                     $errors[] = 'Full name is required.';
                 }
@@ -39,18 +37,20 @@
                 if( empty($city) ){
                     $errors[] = 'City is required.';
                 }
-                if( isZipValid($zip) === false ){
+                if($validate->isZipValid($zip) === false ){
                     $errors[] = 'Zip is required.';
                 }
                 if( empty($state) ){
                     $errors[] = 'State is required.';
                 }
-                if( isDateValid($birthday) === false ){
+                if($validate->isDateValid($birthday) === false ){
                     $errors[] = 'Birthday is required.';
                 }
                 // if not empty add to database
                 if ( count($errors) === 0){
-                    if (createAddress($fullname, $email, $addressline1, $city, $state, $zip, $birthday)){
+                    $address = new AddressCRUD();
+                              
+                    if ($address->createAddress($fullname, $email, $addressline1, $city, $state, $zip, $birthday)){
                         $message = 'Address Added';
                     }
                 }

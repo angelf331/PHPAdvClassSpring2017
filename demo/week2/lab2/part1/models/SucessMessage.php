@@ -11,6 +11,6 @@
  *
  * @author Angel
  */
-class SucessMessage {
+class SucessMessage extends Message{
     //put your code here
 }
