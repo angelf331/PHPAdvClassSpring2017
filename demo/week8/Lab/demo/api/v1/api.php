@@ -79,7 +79,7 @@ try {
         }
         
     } elseif ( 'login' === $resource ) {
-        $restServer->setData(array("token" => $jwt->generateJWT(array("email"=>$serverData['data']), $secrect_key)));
+        $restServer->setData(array("token" => $jwt->generateJWT(array("email"=>$serverData['email']), $secrect_key)));
                 
     } else {
         throw new InvalidArgumentException($resource . ' Resource Not Found');
