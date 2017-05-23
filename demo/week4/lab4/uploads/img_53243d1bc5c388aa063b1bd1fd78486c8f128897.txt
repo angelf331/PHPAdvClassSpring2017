@@ -1,0 +1,33 @@
+String number, last;
+		
+		System.out.println("Enter an interger (0 ends the input): ");
+		number = keyboard.nextLine();
+		last = number.substring(number.length() - 1);
+		
+		while(!last.equals("0")){
+			System.out.println("Must end the input with a 0: ");
+			number = keyboard.nextLine();
+			last = number.substring(number.length() - 1);
+		}
+		
+		String[] array = number.split(" ");
+		
+		int max = Integer.MIN_VALUE, maxIndex = 0;
+		
+		for (int i = 0; i < array.length; i++) {
+		     if (Integer.parseInt(array[i]) > max) {
+		         max = Integer.parseInt(array[i]);
+		         maxIndex = i;
+		     }
+		}
+		int count = 0, max = 0;
+		
+		for (int value : number) {
+			if (count == 0 || va)
+		}
+		//TreeMap<Integer,Long> numberMap = Arrays.stream(array)
+		//	    .map(s -> Integer.parseInt(s))
+		//	    .collect(Collectors.groupingBy(Function.identity(), TreeMap::new, Collectors.counting()));
+		
+		System.out.println("The largest number is " + max);
+		//System.out.println(numberMap.descendingMap().firstEntry().getValue());

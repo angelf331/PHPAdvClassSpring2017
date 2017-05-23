@@ -20,20 +20,19 @@ and open the template in the editor.
         <table class="table table-striped table-hover">
             <tr>
                 <th>FileName</th>
-                <th>Size</th>
-                <th>Type</th>
-                <th>Created</th>
-                <th>Directory</th>
+                
             </tr>
             <?php foreach ($directory as $fileInfo) : ?>
                 <?php if ($fileInfo->isFile()) : ?>
                     
                     <tr>
                         <td><?php echo $fileInfo->getFilename(); ?></td>
-                        <td><?php echo $fileInfo->getSize(); ?></td>
+                        <td><a href="details.php?file=<?php echo $fileInfo->getPathname(); ?>">View</a></td>
+                        <td><a href="delete.php?file=<?php echo $fileInfo->getPathname(); ?>">Delete</a></td>
+<!--                        <td><?php echo $fileInfo->getSize(); ?></td>
                         <td><?php echo $fileInfo->getType(); ?></td>
-                        <td><?php echo $fileInfo->getMTime(); ?></td>
-                        <td><?php echo $fileInfo->getPathname(); ?></td>
+                        <td><?php echo date("l F j, Y, g:i a", $fileInfo->getMTime()); ?></td>
+                        <td><?php echo $fileInfo->getPathname(); ?></td>-->
                     </tr>
                     
                 <?php endif; ?>
