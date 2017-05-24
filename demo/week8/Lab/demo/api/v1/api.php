@@ -79,8 +79,15 @@ try {
         }
         
     } elseif ( 'login' === $resource ) {
-        $restServer->setData(array("token" => $jwt->generateJWT(array("email"=>$serverData['email']), $secrect_key)));
-                
+        if ('POST' !== $verb){
+            throw new InvalidArgumentException('Must be a POST request');
+        }
+        $accounts = new Accounts();
+        if ($accounts->login($serverData['email'], $serverData['password'])) {
+            $restServer->setData(array("token" => $jwt->generateJWT(array("email" => $serverData['email']), $secrect_key)));
+        } else{
+            throw new InvalidArgumentException('Login failed');
+        }       
     } else {
         throw new InvalidArgumentException($resource . ' Resource Not Found');
         
